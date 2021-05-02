@@ -31,9 +31,12 @@ type
     procedure EditBlueChange(Sender: TObject);
     procedure EditBlueClick(Sender: TObject);
     procedure EditGreenClick(Sender: TObject);
+    procedure EditHexChange(Sender: TObject);
     procedure EditHexClick(Sender: TObject);
     procedure EditRedClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure mbDeskPickerButton1Click(Sender: TObject);
     procedure mbDeskPickerButton1SelColorChange(Sender: TObject);
     procedure scColorChange(Sender: TObject);
   private
@@ -73,6 +76,11 @@ begin
 
 end;
 
+procedure TForm1.EditHexChange(Sender: TObject);
+begin
+
+end;
+
 
 procedure TForm1.EditHexClick(Sender: TObject);
 begin
@@ -92,6 +100,16 @@ begin
 
 end;
 
+procedure TForm1.FormShow(Sender: TObject);
+begin
+  self.Width:=256;
+end;
+
+procedure TForm1.mbDeskPickerButton1Click(Sender: TObject);
+begin
+
+end;
+
 
 procedure TForm1.mbDeskPickerButton1SelColorChange(Sender: TObject);
 begin
@@ -100,12 +118,19 @@ begin
 end;
 
 procedure TForm1.scColorChange(Sender: TObject);
+var
+  sR, sG, sB: String;
 begin
 
     EditRed.Text:=Red(sc.Color).ToString;
     EditGreen.Text:=Green(sc.Color).ToString;
     EditBlue.Text:=Blue(sc.Color).ToString;
-    EditHex.Text:='#'+ColorToRGB(sc.Color).ToHexString(6);
+    //EditHex.Text:='#'+ColorToRGB(sc.Color).ToHexString(6);
+    sR := IntToHex(StrToInt(EditRed.Text),2);
+    sG := IntToHex(StrToInt(EditGreen.Text),2);
+    sB := IntToHex(StrToInt(EditBlue.Text),2);
+    EditHex.Text:='#'+sR+sG+sB;
+
 
 end;
 

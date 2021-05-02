@@ -1,25 +1,25 @@
 object Form1: TForm1
-  Left = 488
-  Height = 200
-  Top = 193
+  Left = 487
+  Height = 320
+  Top = 199
   Width = 128
   BorderIcons = [biSystemMenu, biMinimize]
-  BorderStyle = bsSingle
   Caption = 'PicColor'
-  ClientHeight = 200
+  ClientHeight = 320
   ClientWidth = 128
   OnCreate = FormCreate
+  OnShow = FormShow
   Position = poDefault
-  LCLVersion = '6.8'
+  LCLVersion = '7.2'
   object Panel3: TPanel
     Left = 0
-    Height = 111
-    Top = 89
+    Height = 167
+    Top = 153
     Width = 128
     Align = alClient
-    ClientHeight = 111
+    ClientHeight = 167
     ClientWidth = 128
-    TabOrder = 0
+    TabOrder = 1
     object EditGreen: TEdit
       Left = 48
       Height = 23
@@ -27,7 +27,7 @@ object Form1: TForm1
       Width = 64
       Alignment = taRightJustify
       OnClick = EditGreenClick
-      TabOrder = 0
+      TabOrder = 2
       Text = '0'
     end
     object EditBlue: TEdit
@@ -38,7 +38,7 @@ object Form1: TForm1
       Alignment = taRightJustify
       OnChange = EditBlueChange
       OnClick = EditBlueClick
-      TabOrder = 1
+      TabOrder = 3
       Text = '0'
     end
     object EditRed: TEdit
@@ -48,7 +48,7 @@ object Form1: TForm1
       Width = 64
       Alignment = taRightJustify
       OnClick = EditRedClick
-      TabOrder = 2
+      TabOrder = 1
       Text = '0'
     end
     object EditHex: TEdit
@@ -57,8 +57,9 @@ object Form1: TForm1
       Top = 8
       Width = 64
       Alignment = taRightJustify
+      OnChange = EditHexChange
       OnClick = EditHexClick
-      TabOrder = 3
+      TabOrder = 0
     end
     object LabelRed: TLabel
       Left = 8
@@ -88,7 +89,7 @@ object Form1: TForm1
       Left = 8
       Height = 15
       Top = 8
-      Width = 20
+      Width = 21
       Caption = 'Hex'
       ParentColor = False
     end
@@ -100,13 +101,14 @@ object Form1: TForm1
     Width = 128
     Align = alTop
     Caption = 'Pick color'
-    TabOrder = 1
+    OnClick = mbDeskPickerButton1Click
+    TabOrder = 0
     ScreenHintFormat = 'RGB(%r, %g, %b)'#13'Hex: %h'
     OnSelColorChange = mbDeskPickerButton1SelColorChange
   end
   object sc: TmbColorPreview
     Left = 0
-    Height = 64
+    Height = 128
     Top = 25
     Width = 128
     Align = alTop
